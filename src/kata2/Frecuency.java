@@ -1,16 +1,32 @@
 package kata2;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 
 public class Frecuency {
     private int[] vector;
     private static HashMap<Integer, Integer> map = new HashMap<>();
 
-    public Frecuency() {
+    public int Ocurrence () {
         for (int i = 0; i < vector.length; i++) {
-            map.put(vector[i], 0);
+            int key;
+            key = vector[i];
+            if (map.containsKey(key))
+                map.put(key, map.get(key)+1);
+            else
+                map.put(key, 1);
+        }                   
+        Iterator<Map.Entry<Integer,Integer>> iterator = map.entrySet().iterator();
+        String ocurrence;
+        while (iterator.hasNext()) {
+            Map.Entry<Integer,Integer> entry = iterator.next();
+            System.out.println("El número: " 
+                               + entry.getKey() + " aparece "
+                               + entry.getValue() + " vez/veces");
         }
+        return 0;
     }
 
     public Frecuency(int[] vector) { 
