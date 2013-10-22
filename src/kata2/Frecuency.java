@@ -9,7 +9,7 @@ public class Frecuency {
     private int[] vector;
     private static HashMap<Integer, Integer> map = new HashMap<>();
 
-    public int Ocurrence () {
+    public int ocurrence () {
         for (int i = 0; i < vector.length; i++) {
             int key;
             key = vector[i];
@@ -22,9 +22,14 @@ public class Frecuency {
         String ocurrence;
         while (iterator.hasNext()) {
             Map.Entry<Integer,Integer> entry = iterator.next();
-            System.out.println("El número: " 
+            String aux;
+            if (entry.getValue() > 1)
+                aux = "veces";
+            else
+                aux = "vez";
+            System.out.println("El número " 
                                + entry.getKey() + " aparece "
-                               + entry.getValue() + " vez/veces");
+                               + entry.getValue() + " " + aux);
         }
         return 0;
     }
